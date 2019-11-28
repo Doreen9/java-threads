@@ -37,9 +37,19 @@ public class mainThread {
        List<Thread> threads = new ArrayList<>();
 
 
-        IntStream.range(0, 10).forEach(i -> threads.add(new Thread()));
-//                .(i -> new Thread()).collect(Collectors.toList());
+        IntStream.range(0, 2).forEach(i -> threads.add(new Thread()));
 
-        System.out.println(threads);
+        threads.forEach(thread -> {
+            while(true){
+                if(thread.isInterrupted()){
+                    System.out.println("Thread " + Thread.currentThread().getName() + " has been interrupted!");
+                }
+            }
+        });
+
     }
+
+
 }
+
+
